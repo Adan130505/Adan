@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Pemesanan — ADAN PROJECT</title>
+<meta name="description" content="Form pemesanan layanan ADAN PROJECT — desain rangkaian, PCB, dan pembuatan alat elektronik.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="ADAN PROJECT — Beranda">
+      <svg class="logo-mark" viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+        <line class="pin" x1="2" y1="16" x2="16" y2="16"/>
+        <line class="pin" x1="2" y1="32" x2="16" y2="32"/>
+        <line class="pin" x1="2" y1="48" x2="16" y2="48"/>
+        <line class="pin" x1="48" y1="16" x2="62" y2="16"/>
+        <line class="pin" x1="48" y1="32" x2="62" y2="32"/>
+        <line class="pin" x1="48" y1="48" x2="62" y2="48"/>
+        <rect class="body" x="16" y="8" width="32" height="48" rx="5"/>
+        <text class="mono" x="32" y="37" font-size="15" text-anchor="middle">AP</text>
+      </svg>
+      <span class="brand-name">ADAN <span>PROJECT</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Buka menu navigasi">≡</button>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="pesan.html">Form Pemesanan</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section style="padding-top:48px;padding-bottom:8px;">
+    <div class="wrap section-head">
+      <span class="eyebrow">Pemesanan</span>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-top:.4em;">Form Pemesanan</h1>
+      <p class="muted" style="max-width:62ch;">Isi detail kebutuhan Anda. Setelah dikirim, ringkasan pesanan akan disiapkan untuk dikirim langsung ke ADAN PROJECT melalui WhatsApp.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:8px;">
+    <div class="wrap" style="max-width:680px;">
+      <form id="orderForm" class="form-card" novalidate>
+
+        <div class="field">
+          <label for="nama">Nama</label>
+          <input type="text" id="nama" name="nama" placeholder="Nama lengkap" required>
+        </div>
+
+        <div class="field">
+          <label for="kontak">Kontak (WhatsApp / Email)</label>
+          <input type="text" id="kontak" name="kontak" placeholder="08xx-xxxx-xxxx atau email@contoh.com" required>
+        </div>
+
+        <div class="field">
+          <label for="layanan">Jenis Layanan</label>
+          <select id="layanan" name="layanan" required>
+            <option value="" disabled selected>Pilih layanan</option>
+            <option value="Desain Rangkaian Elektronik">Desain Rangkaian Elektronik</option>
+            <option value="Desain & Fabrikasi PCB">Desain &amp; Fabrikasi PCB</option>
+            <option value="Pembuatan Alat / Prototipe">Pembuatan Alat / Prototipe</option>
+            <option value="Pemrograman Mikrokontroler">Pemrograman Mikrokontroler</option>
+            <option value="Konsultasi & Reparasi Elektronik">Konsultasi &amp; Reparasi Elektronik</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="deskripsi">Deskripsi Kebutuhan</label>
+          <textarea id="deskripsi" name="deskripsi" rows="5" placeholder="Jelaskan kebutuhan Anda: fungsi alat, jumlah komponen, referensi, dll." required></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="deadline">Target Selesai</label>
+            <input type="date" id="deadline" name="deadline">
+          </div>
+          <div class="field">
+            <label for="budget">Estimasi Budget</label>
+            <select id="budget" name="budget">
+              <option value="" selected>— Opsional —</option>
+              <option value="< Rp200.000">&lt; Rp200.000</option>
+              <option value="Rp200.000 – Rp500.000">Rp200.000 – Rp500.000</option>
+              <option value="Rp500.000 – Rp1.500.000">Rp500.000 – Rp1.500.000</option>
+              <option value="> Rp1.500.000">&gt; Rp1.500.000</option>
+              <option value="Belum tahu / minta saran">Belum tahu / minta saran</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Kirim via WhatsApp</button>
+        <button type="button" id="copySummaryBtn" class="btn btn-ghost btn-block" style="margin-top:10px;">Salin Ringkasan</button>
+
+        <p class="hint">Tombol "Kirim via WhatsApp" akan membuka chat WhatsApp berisi ringkasan pesanan Anda. Jika tidak terbuka, gunakan "Salin Ringkasan" lalu kirim manual.</p>
+        <div id="statusMsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand-name">ADAN <span style="color:var(--trace);">PROJECT</span></div>
+      <p class="copyline" style="margin-top:6px;">Merangkai Ide, Menyalakan Solusi.</p>
+    </div>
+    <nav class="footer-links">
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="pesan.html">Form Pemesanan</a>
+    </nav>
+    <div class="copyline">© 2026 ADAN PROJECT</div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
